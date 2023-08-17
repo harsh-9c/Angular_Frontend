@@ -1,0 +1,57 @@
+<app-navbar></app-navbar>
+<h2>Subtask List</h2>
+
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Task Id</th>
+      <th>Subtask Id</th>
+      <th>Subtask Title</th>
+      <th>Comment</th>
+      <th>Start Date</th>
+      <th>Due Date</th>
+      <th>Progress</th>
+      <th>Update Progress</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let subtask of subtasks; index as i">
+      <td>{{ subtask[0].taskId.taskId }}</td>
+      <td>{{ subtask[0].subTaskId }}</td>
+      <td>{{ subtask[0].subTaskTitle }}</td>
+      <td>{{ subtask[0].comment }}</td>
+      <td>{{ subtask[0].startDate }}</td>
+      <td>{{ subtask[0].dueDate }}</td>
+      <td>{{ subtask[0].progressPercentage }}</td>
+      <td>
+        <input
+          *ngIf="editMode && enableEditIndex == i"
+          type="number"
+          [(ngModel)]="updatedVal"
+        />
+        <button
+          type="button"
+          class="btn btn-primary btn-sm"
+          *ngIf="!editMode"
+          (click)="
+            editMode = true;
+            updatedSubId = subtask[0].subTaskId;
+            updatedComment = subtask[0].comment;
+            enableEditMethod($event, i)
+          "
+        >
+          Edit
+        </button>
+        &nbsp;
+        <button
+          type="button"
+          class="btn btn-success btn-sm"
+          *ngIf="editMode && enableEditIndex == i"
+          (click)="editMode = false; update()"
+        >
+          Save
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
