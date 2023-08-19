@@ -10,6 +10,7 @@ import { ManagerComponent } from './layout/manager/manager.component';
 import { EmployeeComponent } from './layout/employee/employee.component';
 import { TaskComponent } from './components/task/task.component';
 import { SubtaskComponent } from './components/subtask/subtask.component';
+import { EditSubtaskComponent } from './components/edit-subtask/edit-subtask.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -19,6 +20,8 @@ const routes: Routes = [
   { path: 'employee', component: EmployeeComponent },
   { path: 'task', component: TaskComponent },
   { path: 'subtask', component: SubtaskComponent },
+  { path: 'subtask/:id', component: SubtaskComponent },
+  { path: 'edit-subtask', component: EditSubtaskComponent },
   { path: '404', component: NotFoundComponent },
   { path: '**', redirectTo: '/404' },
 ];

@@ -16,8 +16,8 @@
     <tr>
       <td>{{ projects.projectId }}</td>
       <td>{{ projects.name }}</td>
-      <td>{{ projects.startDate }}</td>
-      <td>{{ projects.endDate }}</td>
+      <td>{{ projects.startDate?.slice(0, 10) }}</td>
+      <td>{{ projects.endDate?.slice(0, 10) }}</td>
       <td>{{ projects.githubLink }}</td>
       <td>{{ projects.budget }}</td>
     </tr>

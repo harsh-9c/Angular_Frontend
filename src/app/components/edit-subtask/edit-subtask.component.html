@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+      <div class="card border-0 shadow rounded-3 my-5">
+        <div class="card-body p-4 p-sm-5">
+          <h5 class="card-title text-center mb-5 fw-light fs-5">
+            Update subtask
+          </h5>
+          <form (ngSubmit)="onSubmit()">
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                class="form-control"
+                id="comment"
+                [(ngModel)]="comment"
+                name="comment"
+              />
+              <label for="floatingInput">Comment</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input
+                type="number"
+                class="form-control"
+                id="progressPercentage"
+                [(ngModel)]="progressPercentage"
+                name="progressPercentage"
+              />
+              <label for="floatingPassword">Progress percentage</label>
+            </div>
+
+            <div class="d-grid">
+              <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+            <div *ngIf="errorSign" class="alert alert-danger mt-3" role="alert">
+              All fields are required
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

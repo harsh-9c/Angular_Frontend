@@ -34,7 +34,6 @@ export class TaskComponent {
     this.projectService.getTaskByProjectId(id).subscribe(
       (data) => {
         console.log(data);
-
         this.tasks = data;
       },
       (error) => {

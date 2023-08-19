@@ -18,8 +18,8 @@
       <td>{{ task.taskId }}</td>
       <td>{{ task.taskTitle }}</td>
       <td>{{ task.description }}</td>
-      <td>{{ task.startDate }}</td>
-      <td>{{ task.dueDate }}</td>
+      <td>{{ task.startDate.slice(0, 10) }}</td>
+      <td>{{ task.dueDate.slice(0, 10) }}</td>
       <td>{{ task.subTaskCount }}</td>
       <td>{{ task.progress }}</td>
     </tr>

@@ -14,6 +14,7 @@ import { EmployeeComponent } from './layout/employee/employee.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { TaskComponent } from './components/task/task.component';
 import { SubtaskComponent } from './components/subtask/subtask.component';
+import { EditSubtaskComponent } from './components/edit-subtask/edit-subtask.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { SubtaskComponent } from './components/subtask/subtask.component';
     EmployeeComponent,
     NavbarComponent,
     TaskComponent,
-    SubtaskComponent
+    SubtaskComponent,
+    EditSubtaskComponent
   ],
   imports: [
     BrowserModule,

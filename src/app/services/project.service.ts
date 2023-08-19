@@ -9,11 +9,12 @@ import { Project } from '../models/project';
 export class ProjectService {
   private baseURL = 'http://localhost:9999/ADMIN-SERVICE/api/v1';
 
-  private managerURL =
-    'http://localhost:9999/MANAGER-SERVICE/subtask/SubTaskByTaskId';
+  private managerURL = 'http://localhost:9501/subtask/SubTaskByTaskId';
 
   private projectManagementURL =
     'http://localhost:9999/PROJECT-MANAGEMENT/api/updateProgress/';
+
+  private projectManagementURL2 = 'http://localhost:8000/api/updateProgress/';
 
   constructor(private httpClient: HttpClient) {}
 
@@ -83,24 +84,18 @@ export class ProjectService {
     id: number | undefined,
     progress: number | undefined,
     comment: string | undefined
-  ): void {
+  ): Observable<any> {
     console.log(id, progress, comment);
-    console.log(
-      `${this.projectManagementURL}` +
-        `${id}` +
-        '/' +
-        `${progress}` +
-        '/' +
-        `${comment}`
-    );
-    this.httpClient.put(
-      `${this.projectManagementURL}` +
+
+    return this.httpClient.put(
+      `${this.projectManagementURL2}` +
         `${id}` +
         '/' +
         `${progress}` +
         '/' +
         `${comment}`,
-      {}
+      {},
+      { responseType: 'text' }
     );
   }
 }
