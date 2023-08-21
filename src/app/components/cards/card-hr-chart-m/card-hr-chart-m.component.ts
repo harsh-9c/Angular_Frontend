@@ -26,8 +26,7 @@ export class CardHrChartMComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    //this.projectId = Number(sessionStorage.getItem('pid'));
-    this.projectId = 1;
+    this.projectId = Number(localStorage.getItem('projectId'));
     this.taskService.findTask(this.projectId).subscribe((response) => {
       this.tasks = response;
       this.getTaskDetails();

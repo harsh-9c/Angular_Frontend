@@ -21,22 +21,27 @@ export class ViewmembersComponent implements OnInit {
   constructor(private projectMemberService: ProjectmemberService) {}
 
   ngOnInit() {
-    //this.projectId = Number(sessionStorage.getItem('pid'));
-    this.projectId = 1;
-    this.dataSource.sort = this.sort;
-
-    // this.projectMemberService.findProjectMember().subscribe(response => {
-    //   this.projectMembers = response;
-    //   this.dataSource = new MatTableDataSource(this.projectMembers);
-    // });
-
-    this.projectMemberService
-      .getProjectMembers(this.projectId)
-      .subscribe((response) => {
-        console.log(response);
-
+    this.projectId = Number(localStorage.getItem('projectId'));
+    // this.dataSource.sort = this.sort;
+    this.projectMemberService.findProjectMember().subscribe(
+      (response) => {
         this.projectMembers = response;
         this.dataSource = new MatTableDataSource(this.projectMembers);
-      });
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+
+    this.projectMemberService.getProjectMembers(this.projectId).subscribe(
+      (response) => {
+        console.log(response);
+        this.projectMembers = response;
+        this.dataSource = new MatTableDataSource(this.projectMembers);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 }

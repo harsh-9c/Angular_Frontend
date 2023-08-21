@@ -34,8 +34,7 @@ export class TaskmComponent implements OnInit {
 
   ngOnInit() {
     // Access Session
-    //this.projectid = Number(sessionStorage.getItem('pid'));
-    this.projectid = 1;
+    this.projectid = Number(localStorage.getItem('projectId'));
     this.projectService.findById(this.projectid).subscribe((response) => {
       this.projectDemo = response;
       console.log(this.projectDemo.name);

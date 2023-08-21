@@ -43,15 +43,11 @@ export class ManagerComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('Project Id' + sessionStorage.getItem('pid'));
+    console.log('Project Id = ' + localStorage.getItem('projectId'));
   }
 
   logout() {
-    sessionStorage.removeItem('eid');
-    sessionStorage.removeItem('useType');
-    sessionStorage.removeItem('username');
-    sessionStorage.removeItem('pid');
-    sessionStorage.removeItem('tid');
+    localStorage.clear();
     this.router.navigate(['login']);
   }
 }

@@ -35,6 +35,8 @@ export class EmployeeUpdateComponent {
   enableEditIndex = null;
   empName: string;
 
+  cloneData: any;
+
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
@@ -70,7 +72,7 @@ export class EmployeeUpdateComponent {
 
   private getProjects() {
     this.projectService
-      .getProjectById(Number(localStorage.getItem('userId')))
+      .getProjectById(Number(localStorage.getItem('projectId')))
       .subscribe(
         (data) => {
           console.log(data);
@@ -102,8 +104,15 @@ export class EmployeeUpdateComponent {
     this.projectService.getSubTaskByTaskId(id).subscribe(
       (data) => {
         console.log(data);
-        this.subtasks.push(data);
-        console.log(this.subtasks);
+        this.cloneData = JSON.parse(JSON.stringify(data));
+        console.log(this.cloneData[0].employeeId);
+
+        if (
+          this.cloneData[0].employeeId.employeeId ==
+          Number(localStorage.getItem('userId'))
+        ) {
+          this.subtasks.push(data);
+        }
         this.subtasks.sort((a: any, b: any) =>
           a[0].taskId.taskId < b[0].taskId.taskId ? -1 : 1
         );

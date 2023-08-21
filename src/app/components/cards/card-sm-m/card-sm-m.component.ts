@@ -16,6 +16,7 @@ export class CardSmMComponent implements OnInit {
   iconData: any;
   @Input()
   cardData: any;
+  members: any;
 
   constructor(
     private projectService: ProjectService,
@@ -23,13 +24,40 @@ export class CardSmMComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    //this.projectId = Number(sessionStorage.getItem('pid'));
-    this.projectId = 1;
+    this.projectId = Number(localStorage.getItem('projectId'));
+
     this.projectService.findById(this.projectId).subscribe((response) => {
       this.project = response;
+      console.log(this.project);
+
       this.getProjectMembers();
     });
   }
+
+  // getProjectId() {
+  //   this.projectMemberService.getAllMembers().subscribe(
+  //     (data) => {
+  //       console.log(data);
+  //       this.members = JSON.parse(JSON.stringify(data));
+  //       console.log(this.members.length);
+
+  //       for (var i = 0; i < this.members.length; i++) {
+  //         console.log(this.members[i].employeeId);
+  //         if (
+  //           Number(this.members[i].employeeId.employeeId) ===
+  //           Number(localStorage.getItem('userId'))
+  //         ) {
+  //           this.projectId = this.members[i].projectId.projectId;
+  //           console.log(this.members[i].projectId);
+  //           break;
+  //         }
+  //       }
+  //     },
+  //     (error) => {
+  //       console.log(error);
+  //     }
+  //   );
+  // }
 
   getProjectMembers() {
     this.projectMemberService

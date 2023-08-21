@@ -102,6 +102,9 @@
         </tbody>
       </table>
     </form>
+    <div class="alert alert-warning" role="alert" *ngIf="subtasks.length === 0">
+      No subtasks assigned
+    </div>
     <!-- </div> -->
   </mat-card-content>
 </mat-card>

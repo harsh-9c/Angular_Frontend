@@ -42,4 +42,8 @@ export class ProjectmemberService {
       this.findProjectlByEmpIdURL + '/' + id
     );
   }
+
+  public getAllMembers(): Observable<Object> {
+    return this.http.get('http://localhost:9100/api/v1/project_members');
+  }
 }

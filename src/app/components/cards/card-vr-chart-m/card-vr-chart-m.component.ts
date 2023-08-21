@@ -39,8 +39,7 @@ export class CardVrChartMComponent implements OnInit {
   }
 
   ngOnInit() {
-    //this.projectId = Number(sessionStorage.getItem('pid'));
-    this.projectId = 1;
+    this.projectId = Number(localStorage.getItem('projectId'));
     // this.chartService.getProjectProgressData().subscribe(response => {
     //   this.tasks = response;
     //   this.projectTitle = this.tasks[0].projectId.description;
@@ -98,6 +97,7 @@ export class CardVrChartMComponent implements OnInit {
 
   refresh() {
     this.progress = 0;
+    this.doughnutchart.destroy();
     this.ngOnInit();
   }
 
@@ -106,11 +106,7 @@ export class CardVrChartMComponent implements OnInit {
   }
 
   logout() {
-    sessionStorage.removeItem('eid');
-    sessionStorage.removeItem('useType');
-    sessionStorage.removeItem('username');
-    sessionStorage.removeItem('pid');
-    sessionStorage.removeItem('tid');
+    localStorage.clear();
     this.router.navigate(['login']);
   }
 

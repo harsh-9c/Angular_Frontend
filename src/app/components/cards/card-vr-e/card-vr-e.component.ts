@@ -44,7 +44,7 @@ export class CardVrEComponent {
     //   this.populateChart();
     // });
     this.projectService
-      .findById(Number(localStorage.getItem('userId')))
+      .findById(Number(localStorage.getItem('projectId')))
       .subscribe((response) => {
         this.project = response;
         this.projectTitle = response.name;
@@ -54,9 +54,11 @@ export class CardVrEComponent {
       });
 
     this.taskService
-      .findTask(Number(localStorage.getItem('userId')))
+      .getTaskByProjectId(Number(localStorage.getItem('projectId')))
       .subscribe((response) => {
         this.tasks = response;
+        console.log(this.tasks.length);
+
         this.getTaskProgressDetails();
         this.populateChart();
       });
@@ -66,6 +68,13 @@ export class CardVrEComponent {
     for (const task of this.tasks) {
       this.progress += task.progress;
     }
+    console.log(
+      this.progress +
+        '/' +
+        this.tasks.length +
+        ' = ' +
+        Math.round(this.progress / this.tasks.length)
+    );
   }
 
   populateChart() {

@@ -17,7 +17,7 @@ export class TaskComponent {
   }
   private getProjects() {
     this.projectService
-      .getProjectById(Number(localStorage.getItem('userId')))
+      .getProjectById(Number(localStorage.getItem('projectId')))
       .subscribe(
         (data) => {
           console.log(data);
