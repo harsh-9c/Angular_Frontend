@@ -1,0 +1,40 @@
+.card-vr-chart{
+    margin-top: 1rem;
+    border: 1px solid #00000020;
+    border-radius: 12px;
+    box-shadow: 0 6px 10px -4px rgba(0,0,0,.15);
+    background-color: white;
+}
+
+.card-vr-header{
+    font-size: 1.5rem;
+}
+
+.chart-vr-data{
+    display: flex;
+}
+
+.card-vr-footer-button{
+    margin-top: 10px;
+}
+
+.divider{
+    margin-top: 10px;
+}
+
+.project-button{
+    height: 2rem;
+}
+
+button:focus{
+    outline: none;
+}
+
+.project-card-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.material-icons{
+    font-size: 18px;
+}

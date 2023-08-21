@@ -1,0 +1,34 @@
+<mat-card class="card-vr-chart">
+  <mat-card-header class="project-card-header">
+    <mat-card-title
+      >{{ projectTitle }}
+      <mat-icon matTooltip="{{ projectDescription }}" (click)="description()"
+        >info_outline</mat-icon
+      >
+    </mat-card-title>
+
+    <mat-card-subtitle>{{ projectSubtitle }}</mat-card-subtitle>
+
+    <button
+      mat-flat-button
+      color="primary"
+      class="project-button"
+      [routerLink]="['/employee-update']"
+    >
+      My Subtasks
+    </button>
+  </mat-card-header>
+
+  <mat-card-content class="card-vr-chart-body">
+    <div class="card-vr-chart-data">
+      <canvas id="doughnutchart_canvas">{{ doughnutchart }}</canvas>
+    </div>
+    <mat-divider class="divider"></mat-divider>
+    <mat-card-footer>
+      <button mat-icon-button class="card-vr-footer-button" (click)="refresh()">
+        <mat-icon>refresh</mat-icon>
+      </button>
+      Refresh
+    </mat-card-footer>
+  </mat-card-content>
+</mat-card>

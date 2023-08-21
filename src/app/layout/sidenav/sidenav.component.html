@@ -1,1 +1,76 @@
 <p>Welcome admin</p>
+<div
+  class="navigation-container"
+  [class.navigation-is-mobile]="mobileQuery.matches"
+>
+  <mat-toolbar class="header">
+    <mat-toolbar-row class="header-row">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Project Management</span>
+      <span class="toolbar-spacer"></span>
+
+      <!-- <span [matBadge]="notifications" [matBadgeHidden]="notifications === 0" matBadgeSize="small">
+            <button mat-icon-button [matMenuTriggerFor]="notificationMenu">
+                <mat-icon class="toolbar-icon" aria-hidden="false" aria-label="Toolbar notifications icon">
+                    notifications
+                </mat-icon>
+            </button>
+        </span>
+        <mat-menu #notificationMenu="matMenu">
+            <button mat-menu-item>Notification 1</button>
+            <mat-divider></mat-divider>
+            <button mat-menu-item>Notification 2</button>
+        </mat-menu> -->
+
+      <button mat-icon-button [matMenuTriggerFor]="profileMenu">
+        <mat-icon
+          class="toolbar-icon"
+          aria-hidden="false"
+          aria-label="Toolbar profile icon"
+        >
+          account_circle
+        </mat-icon>
+      </button>
+      <mat-menu #profileMenu="matMenu">
+        <!-- <button mat-menu-item>Profile</button>
+          <mat-divider></mat-divider> -->
+        <button mat-menu-item (click)="logout()">Log Out</button>
+      </mat-menu>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-sidenav-container
+    class="navigation-sidenav-container"
+    [style.marginTop]="mobileQuery.matches ? 56 : 56"
+  >
+    <mat-sidenav
+      opened
+      class="drawer"
+      #sidenav
+      [mode]="mobileQuery.matches ? 'over' : 'side'"
+      [fixedInViewport]="mobileQuery.matches"
+      fixedTopGap="56"
+    >
+      <mat-card class="example-card">
+        <img
+          class="profile_image"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThpUgC7dkHYV0KD26Ujw5u83EI43dOZqvABg&usqp=CAU"
+          alt="Photo of a Shiba Inu"
+        />
+      </mat-card>
+
+      <mat-nav-list class="sidebar-list" *ngFor="let nav of fillerNav">
+        <a class="list-anchor" mat-list-item routerLink="{{ nav.link }}">
+          <i class="material-icons">{{ nav.icon }}</i>
+          <div>{{ nav.title }}</div>
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content class="sidenav-content">
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

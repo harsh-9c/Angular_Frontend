@@ -2,12 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Project } from '../models/project';
+import { Projectmongo } from '../models/projectmongo';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProjectService {
-  private baseURL = 'http://localhost:9999/ADMIN-SERVICE/api/v1';
+  private baseURL = 'http://localhost:9100/api/v1';
 
   private managerURL = 'http://localhost:9501/subtask/SubTaskByTaskId';
 
@@ -15,6 +16,14 @@ export class ProjectService {
     'http://localhost:9999/PROJECT-MANAGEMENT/api/updateProgress/';
 
   private projectManagementURL2 = 'http://localhost:8000/api/updateProgress/';
+
+  private projectByIdUrl = 'http://localhost:9501/project/ProjectById';
+
+  private projectDescServiceUrl =
+    'http://localhost:9999/MANAGER-SERVICE/projectDesc/saveProjectDesc';
+
+  private completeProjectUrl =
+    'http://localhost:9999/MANAGER-SERVICE/project/CompleteProject';
 
   constructor(private httpClient: HttpClient) {}
 
@@ -97,5 +106,20 @@ export class ProjectService {
       {},
       { responseType: 'text' }
     );
+  }
+
+  public findById(id: number = 1): Observable<Project> {
+    return this.httpClient.get<Project>(this.projectByIdUrl + '/' + id);
+  }
+
+  public saveProjectDesc(projectDescStake: Projectmongo) {
+    return this.httpClient.post<Projectmongo>(
+      this.projectDescServiceUrl,
+      projectDescStake
+    );
+  }
+
+  public setProjectComplete(project: Project) {
+    return this.httpClient.put<boolean>(this.completeProjectUrl, project);
   }
 }

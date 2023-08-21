@@ -1,0 +1,145 @@
+/*
+========================================
+          Navigation Styles
+=========================================
+*/
+.navigation-container {
+  /* display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-width: 100vw;
+    position: fixed; */
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.navigation-is-mobile {
+  position: fixed;
+  /* Make sure the toolbar will stay on top of the content as it scrolls past. */
+  z-index: 2;
+}
+
+.navigation-sidenav-container {
+  /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
+       causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
+  flex: 1;
+  /*height: 100vh;*/
+  background-color: #f4f3ef;
+}
+
+.navigation-is-mobile .navigation-sidenav-container {
+  /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
+       `<body>` to be our scrolling element for mobile layouts. */
+  /* flex: 1 0 auto; */
+  /*flex: 1 0 auto;*/
+}
+
+/*
+  ========================================
+            Toolbar Styles
+  =========================================
+  */
+.header {
+  display: flex;
+  background: #1f1f21;
+  color: white;
+  z-index: 2;
+}
+
+.header-row {
+  align-items: center;
+}
+
+.toolbar-icon {
+  padding: 0 14px;
+  font-size: 24px;
+}
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+.toolbar-search {
+  text-decoration: none;
+}
+.toolbar-search::placeholder {
+  color: white;
+}
+
+button:focus {
+  outline: none;
+}
+
+/*
+  ========================================
+            Drawer Styles
+  =========================================
+  */
+
+.drawer {
+  float: left;
+  width: 250px;
+  background: #1f1f21;
+}
+
+.example-card {
+  /* background: #e7d2d2; */
+
+  background: rgb(52, 212, 235);
+  /* background: radial-gradient(circle, rgba(52,212,235,1) 31%, rgba(45,81,253,1) 100%);  */
+  background: radial-gradient(
+    circle,
+    rgba(52, 212, 235, 1) 31%,
+    rgba(45, 81, 253, 1) 100%
+  );
+  border-radius: 0;
+  min-height: 200px;
+  display: flex;
+  justify-content: center;
+}
+
+.profile_image {
+  padding-top: 1em;
+  position: relative;
+  height: 150px;
+  width: 150px;
+  /*border-radius: 50%;*/
+}
+
+.sidebar-list {
+  margin: 0;
+  padding: 10px;
+  list-style-type: none;
+}
+
+.list-anchor {
+  color: white;
+  display: block;
+  text-align: left;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 1em;
+}
+
+.list-anchor:active {
+  background: rgba(0, 174, 255, 0.5);
+  border-radius: 5px;
+}
+
+.list-anchor:hover {
+  text-decoration: none;
+  color: white;
+  background: rgba(255, 255, 255, 0.13);
+  border-radius: 5px;
+}
+
+.material-icons {
+  font-size: 24px;
+  margin-right: 5px;
+  vertical-align: middle;
+}

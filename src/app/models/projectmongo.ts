@@ -1,7 +1,5 @@
 export class Projectmongo {
-  constructor(
-    public projectId: number,
-    public projectDesc: string,
-    public stakeholders: string
-  ) {}
+  projectId: number | undefined;
+  projectDesc: string | undefined;
+  stakeholders: string | undefined;
 }

@@ -1,0 +1,74 @@
+<h1>subtask-m working</h1>
+<!-- <mat-card class="subtask-card">
+    <mat-card-header class="subtask-card-header">
+        <mat-card-title>
+            Subtasks
+        </mat-card-title>
+        <mat-card-subtitle>
+            of {{taskName}}
+        </mat-card-subtitle>
+        <button class="subtask-button" mat-flat-button color="primary" (click)="openDialog()">Create</button>
+    </mat-card-header>
+    <mat-card-content class="subtask-card-content">
+        <table mat-table [dataSource]="dataSource" multiTemplateDataRows>
+            <ng-container matColumnDef="subTaskTitle">
+                <th mat-header-cell *matHeaderCellDef>Title</th>
+                <td mat-cell *matCellDef="let subtask" data-label="Title">{{subtask.subTaskTitle}}</td>
+            </ng-container>
+            <ng-container matColumnDef="subTaskDescription">
+                <th mat-header-cell *matHeaderCellDef>Task Description</th>
+                <td mat-cell *matCellDef="let subtask" data-label="Description">{{subtask.subTaskDescription}}</td>
+            </ng-container>
+            <ng-container matColumnDef="startDate">
+                <th mat-header-cell *matHeaderCellDef>Start Date</th>
+                <td mat-cell *matCellDef="let subtask" data-label="Start Date">{{subtask.startDate | date: "dd/MM/yy"}}</td>
+            </ng-container>
+            <ng-container matColumnDef="dueDate">
+                <th mat-header-cell *matHeaderCellDef>Due Date</th>
+                <td mat-cell *matCellDef="let subtask" data-label="Due Date">{{subtask.dueDate | date: "dd/MM/yy"}}</td>
+            </ng-container>
+            <ng-container matColumnDef="employeeId">
+                <th mat-header-cell *matHeaderCellDef>Employee Assigned</th>
+                <td mat-cell *matCellDef="let subtask" data-label="Employee Assigned">{{subtask.employeeId.username}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="progressPercentage">
+                <th mat-header-cell *matHeaderCellDef>Progress</th>
+                <td mat-cell *matCellDef="let subtask" data-label="Progress">
+
+                    <div class="subtask-progress-container">
+                        <circle-progress [percent]="subtask.progressPercentage" [radius]="100" [outerStrokeWidth]="16"
+                                         [outerStrokeColor]="'#78C000'" [animation]="true" [animationDuration]="300"></circle-progress>
+                    </div>
+                </td>
+            </ng-container>
+
+          
+            <ng-container matColumnDef="expandedDetail">
+                <td mat-cell *matCellDef="let subtask" [attr.colspan]="columnsToDisplay.length">
+                    <div class="example-element-detail" [@detailExpand]="subtask == expandedElement ? 'expanded' : 'collapsed'">
+
+                        <div class="example-element-description">
+                            {{subtask.comment}}
+
+                        </div>
+                    </div>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+            <tr mat-row *matRowDef="let subtask; columns: columnsToDisplay;" class="example-element-row"
+                [class.example-expanded-row]="expandedElement === subtask"
+                (click)="expandedElement = expandedElement === subtask ? null : subtask">
+            </tr>
+            <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+        </table>
+    </mat-card-content>
+
+
+</mat-card> -->
+
+<!--  -->
+<!-- class="example-element-row"
+      [class.example-expanded-row]="expandedElement === subtask"
+      (click)="expandedElement = expandedElement === subtask ? null : subtask" -->

@@ -1,0 +1,61 @@
+<div mat-dialog-content style="width: 300px; height: 400px;">
+
+  <form #subtaskCreateForm="ngForm">
+
+    <mat-form-field class="subtask-form-inputs">
+      <input matInput placeholder="Subtask Title" [(ngModel)]="data.subTaskTitle" required minlength="10" name="subTaskTitle"
+             #subTaskTitle="ngModel" [ngClass]="{
+          'has-danger': subTaskTitle.invalid && (subTaskTitle.dirty || subTaskTitle.touched),
+          'has-success': subTaskTitle.valid && (subTaskTitle.dirty || subTaskTitle.touched) }">
+      <mat-error *ngIf="subTaskTitle.errors && (subTaskTitle.dirty || subTaskTitle.touched) && subTaskTitle.errors['minlength']">
+        Title length cannot be less than 10!
+      </mat-error>
+      <mat-error *ngIf="subTaskTitle.errors && (subTaskTitle.dirty || subTaskTitle.touched) && subTaskTitle.errors['required']">
+        Title is <strong>required</strong>
+      </mat-error>
+
+    </mat-form-field>
+
+    <mat-form-field class="subtask-form-inputs">
+      <input matInput [matDatepicker]="startpicker" [(ngModel)]="data.startDate" placeholder="Start Date"
+             name="startDate" max="{{subtaskCreateForm.value.dueDate}}" required #startDate="ngModel" [ngClass]="{
+                              'has-danger': startDate.invalid && (startDate.dirty || startDate.touched),
+                              'has-success': startDate.valid && (startDate.dirty || startDate.touched) }">
+      <mat-datepicker-toggle matSuffix [for]="startpicker"></mat-datepicker-toggle>
+      <mat-datepicker #startpicker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="subtask-form-inputs">
+      <input matInput [matDatepicker]="duepicker" [(ngModel)]="data.dueDate" placeholder="Due Date" name="dueDate"
+             min="{{subtaskCreateForm.value.startDate}}" required #dueDate="ngModel" [ngClass]="{
+                              'has-danger': dueDate.invalid && (dueDate.dirty || dueDate.touched),
+                              'has-success': dueDate.valid && (dueDate.dirty || dueDate.touched) }">
+      <mat-datepicker-toggle matSuffix [for]="duepicker"></mat-datepicker-toggle>
+      <mat-datepicker #duepicker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="subtask-form-inputs">
+      <mat-label>Employee Assignment</mat-label>
+      <mat-select  name="employeeId" required #employeeId="ngModel" [(ngModel)]="data.employeeId" >
+        <mat-option *ngFor="let projectMember of data.projectMembers" [value]="projectMember.employeeId">
+          {{projectMember.employeeId.username}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="subtask-form-inputs">
+        <textarea matInput placeholder="Description" name="subTaskDescription" [(ngModel)]="data.subTaskDescription"
+                  #subTaskDescription="ngModel"></textarea>
+    </mat-form-field>
+
+    <div mat-dialog-actions>
+      <button mat-stroked-button color="warn" (click)="onNoClick()">Cancel</button>
+      <button mat-stroked-button [disabled]="!subtaskCreateForm.form.valid" color="primary"
+              [mat-dialog-close]="data">Submit</button>
+    </div>
+  </form>
+
+
+</div>
+
+<!--  -->

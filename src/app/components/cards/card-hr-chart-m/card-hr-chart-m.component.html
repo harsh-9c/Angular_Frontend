@@ -1,0 +1,20 @@
+<mat-card class="card-hr-chart">
+    <mat-card-header>
+        <mat-card-title>{{ taskHeader }}
+        </mat-card-title>
+        <mat-card-subtitle>{{ taskSubtitle }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content class="card-hr-chart-body">
+        <div class="card-hr-chart-data">
+            <canvas id="barchart_canvas">{{ barchart }}</canvas>
+        </div>
+        <mat-divider class="divider"></mat-divider>
+
+        <mat-card-footer>
+            <button mat-icon-button class="card-hr-footer-button" (click)="refresh()">
+                <mat-icon>refresh</mat-icon>
+            </button>
+            Refresh
+        </mat-card-footer>
+    </mat-card-content>
+</mat-card>

@@ -56,6 +56,7 @@ export class SubtaskComponent {
   private getSubTasks(id: number) {
     this.projectService.getSubTaskByTaskId(id).subscribe(
       (data) => {
+        console.log(data);
         this.subtasks.push(data);
         console.log(this.subtasks);
         this.subtasks.sort((a: any, b: any) =>

@@ -1,0 +1,51 @@
+<div mat-dialog-content style="width: 300px; height: 400px;">
+
+    <form #taskCreateForm="ngForm">
+
+        <mat-form-field class="task-form-inputs">
+            <input matInput placeholder="Task Title" [(ngModel)]="data.taskTitle" required minlength="10" name="taskTitle"
+                   #taskTitle="ngModel" [ngClass]="{
+          'has-danger': taskTitle.invalid && (taskTitle.dirty || taskTitle.touched),
+          'has-success': taskTitle.valid && (taskTitle.dirty || taskTitle.touched) }">
+            <mat-error *ngIf="taskTitle.errors && (taskTitle.dirty || taskTitle.touched) && taskTitle.errors?.['minlength']">
+                Title length cannot be less than 10!
+            </mat-error>
+            <mat-error *ngIf=" taskTitle.errors && (taskTitle.dirty || taskTitle.touched) && taskTitle.errors?.['required']">
+                Title is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="task-form-inputs">
+            <input matInput [matDatepicker]="startpicker" [(ngModel)]="data.startDate" placeholder="Start Date"
+                   name="startDate" max="{{taskCreateForm.value.dueDate}}" required #startDate="ngModel" [ngClass]="{
+                              'has-danger': startDate.invalid && (startDate.dirty || startDate.touched),
+                              'has-success': startDate.valid && (startDate.dirty || startDate.touched) }">
+            <mat-datepicker-toggle matSuffix [for]="startpicker"></mat-datepicker-toggle>
+            <mat-datepicker #startpicker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field class="task-form-inputs">
+            <input matInput [matDatepicker]="duepicker" [(ngModel)]="data.dueDate" placeholder="Due Date" name="dueDate"
+                   min="{{taskCreateForm.value.startDate}}" required #dueDate="ngModel" [ngClass]="{
+                              'has-danger': dueDate.invalid && (dueDate.dirty || dueDate.touched),
+                              'has-success': dueDate.valid && (dueDate.dirty || dueDate.touched) }">
+            <mat-datepicker-toggle matSuffix [for]="duepicker"></mat-datepicker-toggle>
+            <mat-datepicker #duepicker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field class="task-form-inputs">
+        <textarea matInput placeholder="Description" name="description" [(ngModel)]="data.description"
+                  #taskDescription="ngModel"></textarea>
+        </mat-form-field>
+
+        <div mat-dialog-actions>
+            <button mat-stroked-button color="warn" (click)="onNoClick()">Cancel</button>
+            <button mat-stroked-button [disabled]="!taskCreateForm.form.valid" color="primary"
+                    [mat-dialog-close]="data">Submit</button>
+        </div>
+    </form>
+
+
+</div>
+
+<!--  -->

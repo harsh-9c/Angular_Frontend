@@ -1,0 +1,105 @@
+.card-layout-container {
+  margin: 1rem;
+}
+
+.task-card {
+  margin: 1rem;
+  border: 1px solid #00000020;
+  border-radius: 12px;
+  box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.15);
+  background-color: white;
+}
+
+button:focus {
+  outline: none;
+}
+
+.task-progress-container {
+  height: 5rem;
+  width: 5rem;
+}
+
+td {
+  vertical-align: middle;
+  text-align: -webkit-center;
+}
+
+.task-card-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.task-button {
+  height: 2rem;
+}
+
+.navigation-container {
+  display: flex;
+  flex-direction: column;
+  /* min-height: 100vh; */
+  min-width: 100vw;
+  position: fixed;
+}
+
+.navigation-is-mobile {
+  position: fixed;
+  /* Make sure the toolbar will stay on top of the content as it scrolls past. */
+  z-index: 2;
+}
+
+.navigation-sidenav-container {
+  /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
+       causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
+  flex: 1;
+  height: 100vh;
+  background-color: #f4f3ef;
+}
+
+.navigation-is-mobile .navigation-sidenav-container {
+  /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
+       `<body>` to be our scrolling element for mobile layouts. */
+  /* flex: 1 0 auto; */
+  flex: 1 0 auto;
+}
+
+/* 
+========================================
+          Toolbar Styles 
+=========================================
+*/
+.header {
+  display: flex;
+  background: #1f1f21;
+  color: white;
+  z-index: 2;
+}
+
+.header-row {
+  align-items: center;
+}
+
+.toolbar-icon {
+  padding: 0 14px;
+  font-size: 24px;
+}
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+.toolbar-search {
+  text-decoration: none;
+}
+.toolbar-search::placeholder {
+  color: white;
+}
+
+button:focus {
+  outline: none;
+}
+
+/* 
+========================================
+          Drawer Styles 
+=========================================
+*/

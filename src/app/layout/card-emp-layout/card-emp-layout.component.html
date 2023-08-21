@@ -1,0 +1,55 @@
+<!-- <div class="navigation-container" > -->
+<mat-toolbar class="header">
+  <mat-toolbar-row class="header-row">
+    <span>Project Management</span>
+    <span class="toolbar-spacer"></span>
+    <button mat-icon-button [matMenuTriggerFor]="profileMenu">
+      <!-- <mat-icon
+        class="toolbar-icon"
+        aria-hidden="false"
+        aria-label="Toolbar profile icon"
+      >
+        account_circle
+      </mat-icon> -->
+      <mat-icon
+        color="toolbar-icon"
+        aria-hidden="false"
+        aria-label="Toolbar profile icon"
+      >
+        account_circle
+      </mat-icon>
+    </button>
+    <mat-menu #profileMenu="matMenu">
+      <!-- <button mat-menu-item>Profile</button>
+      <mat-divider></mat-divider> -->
+      <p mat-menu-item>{{ empName }}</p>
+      <button mat-menu-item (click)="logout()">Log Out</button>
+    </mat-menu>
+  </mat-toolbar-row>
+</mat-toolbar>
+<div class="card-layout-container">
+  <div class="row">
+    <div class="col-lg-3 col-md-6">
+      <app-card-sm-m cardData="Start Date"></app-card-sm-m>
+    </div>
+    <div class="col-lg-3 col-md-6">
+      <app-card-sm-m cardData="Due Date"></app-card-sm-m>
+    </div>
+    <div class="col-lg-3 col-md-6">
+      <app-card-sm-m cardData="Budget"></app-card-sm-m>
+    </div>
+    <div class="col-lg-3 col-md-6">
+      <app-card-sm-m cardData="Employees"></app-card-sm-m>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <app-card-vr-e></app-card-vr-e>
+    </div>
+    <div class="col-sm-6">
+      <app-card-hr-chart-m></app-card-hr-chart-m>
+    </div>
+  </div>
+</div>
+<!-- </div> -->

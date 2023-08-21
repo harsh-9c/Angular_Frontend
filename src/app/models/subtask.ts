@@ -1,14 +1,36 @@
 import { Employee } from './employee';
 
 export class Subtask {
+  subTaskId: number | undefined;
+  taskId: number | undefined;
+  employeeId: Employee | undefined;
+  subTaskTitle: string | undefined;
+  comment: string | undefined;
+  subTaskDescription: string | undefined;
+  startDate: Date | undefined;
+  dueDate: Date | undefined;
+  progressPercentage: number | undefined;
+
   constructor(
-    public subTaskTitle?: string,
-    public subTaskDescription?: string,
-    public startDate?: Date,
-    public dueDate?: Date,
-    public progressPercentage?: number,
-    public comment?: string,
-    public employeeId?: Employee,
-    public taskId?: number
-  ) {}
+    subTaskId?: number,
+    subTaskTitle?: string,
+    subTaskDescription?: string,
+
+    startDate?: Date,
+    dueDate?: Date,
+    progressPercentage?: number,
+    comment?: string,
+    employeeId?: Employee,
+    taskId?: number
+  ) {
+    this.subTaskId = subTaskId;
+    this.taskId = taskId;
+    this.employeeId = employeeId;
+    this.subTaskTitle = subTaskTitle;
+    this.comment = comment;
+    this.subTaskDescription = subTaskDescription;
+    this.startDate = startDate;
+    this.dueDate = dueDate;
+    this.progressPercentage = progressPercentage;
+  }
 }

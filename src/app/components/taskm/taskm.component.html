@@ -1,0 +1,49 @@
+<mat-card class="task-card">
+    <mat-card-header class="task-card-header">
+        <mat-card-title>
+            Tasks
+        </mat-card-title>
+        <mat-card-subtitle>
+            Subtasks
+        </mat-card-subtitle>
+        <button class="task-button" mat-flat-button color="primary" (click)="openDialog()">Create</button>
+    </mat-card-header>
+    <mat-card-content>
+        <table class="table text-center table-borderless">
+            <thead class="manager_task_header">
+            <tr class="alignment text-uppercase">
+                <th>name</th>
+                <th>description</th>
+                <th>start date</th>
+                <th>due date</th>
+                <th>subtask</th>
+                <th>progress</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let task of tasks; index as taskNo">
+                <td data-label="Title">{{task.taskTitle}}</td>
+                <td data-label="Description">{{task.description}}</td>
+                <td data-label="Start Date">{{task.startDate | date: "MM/dd/yy"}}</td>
+                <td data-label="Due Date">{{task.dueDate | date: "MM/dd/yy"}}</td>
+                <td #val [attr.data-task-id]="task.taskId"><button mat-flat-button color="primary" (click)="gotoSubtasks(taskNo)">View Subtasks</button></td>
+                <td data-label="Progress">
+                    <div class="task-progress-container">
+                        <circle-progress
+                                [percent]="task.progress"
+                                [radius]="100"
+                                [outerStrokeWidth]="16"
+                                [outerStrokeColor]="'#78C000'"
+                                [animation]="true"
+                                [animationDuration]="300"
+                        >
+                        </circle-progress>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+
+    </mat-card-content>
+</mat-card>

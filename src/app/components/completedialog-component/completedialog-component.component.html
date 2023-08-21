@@ -1,0 +1,20 @@
+<h1 mat-dialog-title>{{data.projectName}}</h1>
+
+<div mat-dialog-content>
+
+    <p>Are you absolutely sure?</p>
+    <mat-divider></mat-divider>
+
+    <p class="text-danger">This action cannot be undone. This will permanently make this project a completed one and log you out of the project.</p>
+    <mat-divider></mat-divider>
+    <p>Please type in the name of the project to confirm</p>
+
+    <mat-form-field>
+        <input matInput [(ngModel)]="data.enterProject" (keyup)="onKey($event)">
+    </mat-form-field>
+
+</div>
+<div mat-dialog-actions>
+    <button class="mr-3" mat-button (click)="onNoClick()">No Thanks</button>
+    <button  mat-button [mat-dialog-close]="data.enterProject" [disabled]="enval" cdkFocusInitial>Ok</button>
+</div>

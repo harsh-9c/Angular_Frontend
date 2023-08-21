@@ -1,0 +1,109 @@
+<!-- <div class="navigation-container" [class.navigation-is-mobile]="mobileQuery.matches"> -->
+<mat-toolbar class="header">
+  <mat-toolbar-row class="header-row">
+    <span>Project Management</span>
+    <span class="toolbar-spacer"></span>
+    <button mat-icon-button [matMenuTriggerFor]="profileMenu">
+      <mat-icon
+        color="toolbar-icon"
+        aria-hidden="false"
+        aria-label="Toolbar profile icon"
+      >
+        account_circle
+      </mat-icon>
+    </button>
+    <mat-menu #profileMenu="matMenu">
+      <!-- <button mat-menu-item>Profile</button>
+                    <mat-divider></mat-divider> -->
+      <p mat-menu-item>{{ empName }}</p>
+      <button mat-menu-item (click)="logout()">Log Out</button>
+    </mat-menu>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-card class="task-card">
+  <mat-card-header class="task-card-header">
+    <mat-card-title> Assigned SubTask </mat-card-title>
+    <mat-card-subtitle>
+      <button
+        mat-flat-button
+        color="primary"
+        class="project-button"
+        [routerLink]="['/card-emp-layout']"
+      >
+        Home
+      </button>
+    </mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <!-- <div class="container pt-5"> -->
+
+    <form #UpdateForm="ngForm">
+      <table class="table text-center table-borderless table-responsive">
+        <thead class="employee_subtask_header">
+          <tr class="alignment text-uppercase">
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Start Date</th>
+            <th scope="col">Due Date</th>
+            <th scope="col">Progress</th>
+            <th scope="col">Update</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <!-- <tr *ngFor="let taskdetail of tasks">-->
+          <tr #name *ngFor="let subtask of subtasks; let i = index">
+            <td data-label="ID">{{ subtask[0].subTaskId }}</td>
+            <td data-label="Name">{{ subtask[0].subTaskTitle }}</td>
+            <td data-label="Description">
+              {{ subtask[0].subTaskDescription }}
+            </td>
+            <td data-label="Start Date">
+              {{ subtask[0].startDate | date: "MM/dd/yy" }}
+            </td>
+            <td data-label="Due Date">
+              {{ subtask[0].dueDate | date: "MM/dd/yy" }}
+            </td>
+            <td data-label="Progress">
+              <!-- {{ subtask[0].progressPercentage }}% -->
+              <div class="task-progress-container">
+                <circle-progress
+                  [percent]="subtask[0].progressPercentage"
+                  [radius]="100"
+                  [outerStrokeWidth]="16"
+                  [outerStrokeColor]="'#78C000'"
+                  [animation]="true"
+                  [animationDuration]="300"
+                >
+                </circle-progress>
+              </div>
+            </td>
+            <td data-label="button">
+              <!-- <button
+                type="button"
+                class="btn btn-primary btn-sm"
+                (click)="updatedSubId = subtask[0].subTaskId; update()"
+              >
+                Update
+              </button> -->
+              <button
+                mat-flat-button
+                color="primary"
+                class="project-button"
+                (click)="updatedSubId = subtask[0].subTaskId; update()"
+              >
+                Update
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+    <!-- </div> -->
+  </mat-card-content>
+</mat-card>
+
+<!-- </div> -->

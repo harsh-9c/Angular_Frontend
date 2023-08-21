@@ -25,7 +25,7 @@ export class EditSubtaskComponent {
       .subscribe(
         (data) => {
           console.log(data);
-          this.router.navigate(['/subtask']);
+          this.router.navigate(['/employee-update']);
         },
         (error) => {
           console.log(error);

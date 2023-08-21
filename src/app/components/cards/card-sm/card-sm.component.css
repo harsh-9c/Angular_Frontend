@@ -1,0 +1,18 @@
+.card {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 12px;
+  box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.15);
+  padding: 0;
+}
+
+.card-body {
+  display: flex;
+  justify-content: space-between;
+}
+.card-body i {
+  font-size: 4rem;
+}
+
+.card-data {
+  margin-right: 10px;
+}

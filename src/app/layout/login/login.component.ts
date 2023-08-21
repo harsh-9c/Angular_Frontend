@@ -12,6 +12,7 @@ export class LoginComponent {
   user: User = new User();
   errorSign: boolean = false;
   userData: any;
+  a: boolean = true;
 
   constructor(
     private authService: AuthenticationService,
@@ -32,7 +33,14 @@ export class LoginComponent {
         } else if (this.userData.status == 202) {
           this.router.navigate(['/manager']);
         } else {
-          this.router.navigate(['/employee']);
+          this.a = false;
+          if (this.a === false) {
+            console.log('Hello');
+
+            this.router.navigate(['/card-emp-layout']);
+          }
+
+          // this.router.navigate(['/employee']);
         }
       },
       (error) => {

@@ -1,0 +1,109 @@
+.subtask-card{
+    margin: 1rem;
+    border: 1px solid #00000020;
+    border-radius: 12px;
+    box-shadow: 0 6px 10px -4px rgba(0,0,0,.15);
+    background-color: white;
+}
+
+.subtask-card-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.subtask-button{
+    height: 2rem;
+}
+
+.subtask-progress-container{
+    height: 4rem;
+    width: 4rem;
+}
+
+
+table {
+    width: 100%;
+}
+
+td.mat-cell{
+    border-bottom-style: none;
+}
+
+th.mat-header-cell{
+    border-bottom-style: none;
+}
+
+tr.example-detail-row {
+    height: 0;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover {
+    background: rgba(187, 187, 187, 0.452);
+}
+
+tr.example-element-row:not(.example-expanded-row):active {
+    background: #efefef;
+}
+
+.example-element-row td {
+
+    border-bottom-width: 0;
+}
+
+.example-element-detail {
+    overflow: hidden;
+    display: flex;
+}
+
+.example-element-diagram {
+    min-width: 80px;
+    border: 2px solid black;
+    padding: 8px;
+    font-weight: lighter;
+    margin: 8px 0;
+    height: 104px;
+}
+
+.example-element-symbol {
+    font-weight: bold;
+    font-size: 40px;
+    line-height: normal;
+}
+
+.example-element-description {
+    padding: 16px;
+}
+
+.example-element-description-attribution {
+    opacity: 0.5;
+}
+
+
+
+@media screen and (max-width: 700px) {
+    .mat-table{
+        vertical-align: middle;
+    }
+    .mat-table .mat-header-cell{
+        display: none;
+    }
+
+    .mat-table .mat-row{
+        border-radius: 12px;
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+
+    }
+
+    .mat-table .mat-cell:before{
+        content: attr(data-label);
+        font-weight: 700;
+        text-transform: uppercase;
+        padding-right: 10px;
+    }
+
+
+    .mat-table .mat-cell{
+        display: block;
+        padding: 10px;
+    }
+}

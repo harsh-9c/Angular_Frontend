@@ -1,1 +1,58 @@
-<p>manager works!</p>
+<div
+  class="navigation-container"
+  [class.navigation-is-mobile]="mobileQuery.matches"
+>
+  <mat-toolbar class="header">
+    <mat-toolbar-row class="header-row">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Project Management</span>
+      <span class="toolbar-spacer"></span>
+
+      <button mat-icon-button [matMenuTriggerFor]="profileMenu">
+        <mat-icon
+          color="toolbar-icon"
+          aria-hidden="false"
+          aria-label="Toolbar profile icon"
+        >
+          account_circle
+        </mat-icon>
+      </button>
+      <mat-menu #profileMenu="matMenu">
+        <button mat-menu-item (click)="logout()">Log Out</button>
+      </mat-menu>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-sidenav-container
+    class="navigation-sidenav-container"
+    [style.marginTop]="mobileQuery.matches ? 56 : 56"
+  >
+    <mat-sidenav
+      opened
+      class="drawer"
+      #sidenav
+      [mode]="mobileQuery.matches ? 'over' : 'side'"
+      [fixedInViewport]="mobileQuery.matches"
+      fixedTopGap="56"
+    >
+      <mat-card class="example-card">
+        <img
+          class="profile_image"
+          src="https://cdn3d.iconscout.com/3d/premium/thumb/shib-coin-7425282-6044464.png"
+          alt="Photo of a Shiba Inu"
+        />
+      </mat-card>
+      <mat-nav-list class="sidebar-list" *ngFor="let nav of fillerNav">
+        <a class="list-anchor" mat-list-item routerLink="{{ nav.link }}">
+          <i class="material-icons">{{ nav.icon }}</i>
+          <div>{{ nav.title }}</div>
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content class="sidenav-content">
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
